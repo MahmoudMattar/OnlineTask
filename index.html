@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      td {
+        text-align: center;
+      }
+
+      th {
+        text-align: center;
+      }
+      .last {
+        width: 200px;
+      }
+      .flags td {
+        height: 200px;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+      #first,
+      #second {
+        text-align: right;
+        border: 0.2rem dashed palegreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="first" class="container mx-5">
+      <h3>:أجب عن الأسئلة التالية بالضغط على الاجابة الصحيحة</h3>
+      <br />
+      <form onsubmit="GotoNext(event)">
+        <div class="form-check">
+          <strong>ما هي عاصمة مصر ؟</strong>
+          <br />
+
+          <label class="form-check-label mr-4">القاهره</label>
+          <input
+            type="radio"
+            name="question1"
+            class="form-check-input"
+            value="cairo"
+          />
+
+          <br />
+          <label class="form-check-label mr-4">دبي</label>
+
+          <input
+            type="radio"
+            name="question1"
+            class="form-check-input"
+            value="dubai"
+          />
+          <br />
+
+          <label class="form-check-label mr-4">المنامة</label>
+
+          <input
+            type="radio"
+            name="question1"
+            class="form-check-input"
+            value="manama"
+          />
+          <br />
+        </div>
+        <br />
+
+        <div class="form-check">
+          <strong>ما هي عاصة الامارات ؟</strong>
+          <br />
+
+          <label class="form-check-label mr-4">دبي</label>
+          <input
+            type="radio"
+            class="form-check-input"
+            name="question2"
+            value="dubai"
+          />
+          <br />
+          <label class="form-check-label mr-4">الرياض </label>
+
+          <input
+            type="radio"
+            class="form-check-input"
+            name="question2"
+            value="ryad"
+          />
+
+          <br />
+          <label class="form-check-label mr-4">ابو ظبي </label>
+
+          <input
+            type="radio"
+            class="form-check-input"
+            name="question2"
+            value="abo"
+          />
+        </div>
+        <br /><br />
+
+        <input type="submit" value="التالي" class="btn btn-danger" />
+        <br />
+        <br />
+      </form>
+    </div>
+
+    <div id="second" class="container" hidden>
+      <h3>:ضع كل عاصمة وعلم تحت الدولة الخاصة بهما</h3>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">تونس</th>
+            <th scope="col">السعودية</th>
+            <th scope="col">مصر</th>
+            <th scope="col" class="last"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="flags">
+            <td
+              ondrop="put003(event)"
+              ondragover="allowDrop(event)"
+              id="place001"
+            ></td>
+            <td
+              ondrop="put002(event)"
+              ondragover="allowDrop(event)"
+              id="place002"
+            ></td>
+            <td
+              ondrop="put001(event)"
+              ondragover="allowDrop(event)"
+              id="place003"
+            ></td>
+            <td class="last">العلم الخاص بالدولة</td>
+          </tr>
+          <tr class="capitals">
+            <td
+              ondrop="put013(event)"
+              ondragover="allowDrop(event)"
+              id="place011"
+            ></td>
+            <td
+              ondrop="put012(event)"
+              ondragover="allowDrop(event)"
+              id="place011"
+            ></td>
+            <td
+              ondrop="put011(event)"
+              ondragover="allowDrop(event)"
+              id="place011"
+            ></td>
+            <td class="last">عاصمتها</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flagRes row mx-auto">
+        <div class="col-2 mx-auto" ondrop="drop(event)">
+          <img
+            class="img-thumbnail"
+            src="./egy.png"
+            ondragstart="dragStart001(event)"
+            draggable="true"
+            id="target001"
+          />
+        </div>
+
+        <div class="col-2 mx-auto" ondrop="drop(event)">
+          <img
+            class="img-thumbnail"
+            src="./saud.png"
+            ondragstart="dragStart002(event)"
+            draggable="true"
+            id="target002"
+          />
+        </div>
+
+        <div class="col-2 mx-auto" ondrop="drop(event)">
+          <img
+            class="img-thumbnail"
+            src="./tun.png"
+            ondragstart="dragStart003(event)"
+            draggable="true"
+            id="target003"
+          />
+        </div>
+      </div>
+      <div class="capRes row mx-auto mt-5">
+        <div
+          class="btn btn-dark mx-auto"
+          ondragstart="dragStart011(event)"
+          draggable="true"
+          id="target011"
+          ondrop="drop(event)"
+        >
+          القاهره
+        </div>
+        <div
+          class="btn btn-dark mx-auto"
+          ondragstart="dragStart012(event)"
+          draggable="true"
+          id="target012"
+          ondrop="drop(event)"
+        >
+          الرياض
+        </div>
+        <div
+          class="btn btn-dark mx-auto"
+          ondragstart="dragStart013(event)"
+          draggable="true"
+          id="target013"
+          ondrop="drop(event)"
+        >
+          تونس
+        </div>
+      </div>
+      <br />
+      <br />
+      <input
+        type="button"
+        value="تقديم"
+        class="btn btn-danger"
+        onclick="finalResult()"
+      />
+      <br />
+      <br />
+    </div>
+
+    <script>
+      let score = 0;
+      function dragStart001(event) {
+        event.dataTransfer.setData("choice001", event.target.id);
+      }
+
+      function dragStart002(event) {
+        event.dataTransfer.setData("choice002", event.target.id);
+      }
+
+      function dragStart003(event) {
+        event.dataTransfer.setData("choice003", event.target.id);
+      }
+
+      function put001(event) {
+        var data = event.dataTransfer.getData("choice001");
+        event.target.appendChild(document.getElementById(data));
+        score++;
+      }
+
+      function put002(event) {
+        var data = event.dataTransfer.getData("choice002");
+        event.target.appendChild(document.getElementById(data));
+        score++;
+      }
+
+      function put003(event) {
+        var data = event.dataTransfer.getData("choice003");
+        event.target.appendChild(document.getElementById(data));
+        score++;
+      }
+
+      //----------------------------------
+
+      function dragStart011(event) {
+        event.dataTransfer.setData("choice11", event.target.id);
+      }
+
+      function dragStart012(event) {
+        event.dataTransfer.setData("choice12", event.target.id);
+      }
+      function dragStart013(event) {
+        event.dataTransfer.setData("choice13", event.target.id);
+      }
+
+      function put011(event) {
+        var data = event.dataTransfer.getData("choice11");
+        event.target.appendChild(document.getElementById(data));
+        score++;
+      }
+      function put012(event) {
+        var data = event.dataTransfer.getData("choice12");
+        event.target.appendChild(document.getElementById(data));
+        score++;
+      }
+
+      function put013(event) {
+        var data = event.dataTransfer.getData("choice13");
+        event.target.appendChild(document.getElementById(data));
+        score++;
+      }
+
+      //-----------------------------
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function drop(event) {
+        event.preventDefault();
+      }
+
+      function finalResult() {
+        if (score == 6) {
+          document.getElementById("second").style.display = "none";
+          alert("أحسنت ");
+        } else {
+          alert("حاول مره أخري ");
+        }
+      }
+
+      function GotoNext(e) {
+        e.preventDefault();
+
+        var result = resultCheck(e);
+        if (result[0] == "cairo" && result[1] == "dubai") {
+          e.preventDefault();
+          document.getElementById("first").style.display = "none";
+          document.getElementById("second").removeAttribute("hidden");
+        } else {
+          // any Logic for wrong choise
+          e.preventDefault();
+          alert("حاول مره أخري ");
+        }
+      }
+
+      function resultCheck(e) {
+        var Result = [];
+        var checkboxes = document.querySelectorAll(
+          'input[type="radio"]:checked'
+        );
+        for (var checkbox of checkboxes) {
+          Result.push(checkbox.value);
+        }
+        return Result;
+      }
+    </script>
+  </body>
+</html>
